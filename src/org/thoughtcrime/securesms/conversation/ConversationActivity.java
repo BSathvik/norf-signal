@@ -285,7 +285,6 @@ public class ConversationActivity extends PassphraseRequiredActionBarActivity
   protected ComposeText                composeText;
   private   AnimatingToggle            buttonToggle;
   private   SendButton                 sendButton;
-  private   SendButton                 mockingSpongbobSendButton;
   private   ImageButton                attachButton;
   protected ConversationTitleView      titleView;
   private   TextView                   charactersLeft;
@@ -1501,7 +1500,6 @@ public class ConversationActivity extends PassphraseRequiredActionBarActivity
     titleView              = findViewById(R.id.conversation_title_view);
     buttonToggle           = ViewUtil.findById(this, R.id.button_toggle);
     sendButton             = ViewUtil.findById(this, R.id.send_button);
-    mockingSpongbobSendButton = ViewUtil.findById(this, R.id.send_button);
     attachButton           = ViewUtil.findById(this, R.id.attach_button);
     composeText            = ViewUtil.findById(this, R.id.embedded_text_editor);
     charactersLeft         = ViewUtil.findById(this, R.id.space_left);
