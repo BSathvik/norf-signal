@@ -116,6 +116,16 @@ public class TransportOptions {
 
   }
 
+  public static @NonNull TransportOption getMockingTransportOption(@NonNull Context context) {
+    return new TransportOption(Type.MOCKING_SPONGEBOB,
+            R.drawable.ic_send_mocking,
+            context.getResources().getColor(R.color.textsecure_primary),
+            "Mocking SpongeBob",
+            context.getString(R.string.conversation_activity__type_message_push),
+            new PushCharacterCalculator());
+
+  }
+
   private @Nullable TransportOption findEnabledSmsTransportOption(Optional<Integer> subscriptionId) {
     if (subscriptionId.isPresent()) {
       final int subId = subscriptionId.get();
@@ -168,6 +178,7 @@ public class TransportOptions {
     }
 
     results.add(getPushTransportOption(context));
+    results.add(getMockingTransportOption((context)));
 
     return results;
   }

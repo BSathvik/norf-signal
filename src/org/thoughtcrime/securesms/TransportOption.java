@@ -14,7 +14,8 @@ public class TransportOption implements Parcelable {
 
   public enum Type {
     SMS,
-    TEXTSECURE
+    TEXTSECURE,
+    MOCKING_SPONGEBOB
   }
 
   private final int                             drawable;
@@ -77,6 +78,21 @@ public class TransportOption implements Parcelable {
 
   public boolean isSms() {
     return type == Type.SMS;
+  }
+
+  public boolean isMockingSpongebob() {
+    return type == Type.MOCKING_SPONGEBOB;
+  }
+
+  public String formatTextMessage(String message) {
+    if (this.isMockingSpongebob()) {
+      char[] charMessage = message.toCharArray();
+      for (int i = 0; i < charMessage.length; i++) {
+        charMessage[i] = i % 2 == 0 ? Character.toLowerCase(charMessage[i]) : Character.toUpperCase(charMessage[i]);
+      }
+      return new String(charMessage);
+    }
+    return message;
   }
 
   public CharacterState calculateCharacters(String messageBody) {
